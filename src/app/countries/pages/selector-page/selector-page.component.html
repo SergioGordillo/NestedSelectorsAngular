@@ -8,7 +8,8 @@
             <select class="form-control"
                     formControlName="continent">
                 <option value="">---Select a continent---</option>
-                <option value="1">---America---</option>
+                <option *ngFor="let continent of continents" 
+                    [value]="continent | lowercase">---{{continent}}---</option>
             </select>
         </div>
     </div>

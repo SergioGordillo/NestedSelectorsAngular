@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CountriesService } from '../../services/countries.service';
 
 @Component({
   selector: 'app-selector-page',
@@ -12,9 +13,14 @@ export class SelectorPageComponent implements OnInit {
     continent: ['', Validators.required, ]
   })
 
-  constructor(private fb:FormBuilder) { }
+  continents:string[]=[];
+
+  constructor(
+    private fb:FormBuilder, 
+    private countriesService:CountriesService) { }
 
   ngOnInit(): void {
+    this.continents=this.countriesService.continents;
   }
 
   save(){
